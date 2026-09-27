@@ -1,0 +1,39 @@
+# NL2SQL自动化数据生成系统配置文件
+
+# 数据库配置
+db:
+  type: "mysql"              # 支持 mysql / postgres / sqlserver
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "your_password"
+  database: "sales"
+
+# LLM配置
+llm:
+  api_base: "http://127.0.0.1:8000/v1"  # 模型 API 地址
+  api_key: "sk-your-api-key"                     # 模型 API key
+  model_name: "qwen2.5-7b-instruct"      # 模型名称
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 4096
+  timeout: 60                            # 请求超时时间（秒）
+  max_retries: 3                         # 最大重试次数
+
+# 生成配置
+generate:
+  total_samples: 500           # 生成样本总数
+  dialect: "mysql"             # SQL方言
+  output_path: "./data/nl2sql.jsonl"
+  output_format: "alpaca"      # alpaca / sharegpt
+  max_tables_per_topic: 8      # 每个主题最大表数量
+  min_tables_per_topic: 3      # 每个主题最小表数量
+  enable_execution_check: false # 是否启用SQL执行验证
+  
+# 安全配置
+security:
+  table_blacklist:             # 表黑名单
+    - "user_password"
+    - "admin_users"
+  enable_limit: true           # 强制添加LIMIT
+  max_limit: 100               # 最大LIMIT值
