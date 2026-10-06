@@ -128,7 +128,7 @@ python vllm_test.py \
 
 ## 📚 相关课程
 
-- 📖 课程文档：[飞书知识库](#)（待补充）
+- 📖 课程文档：[飞书知识库](https://scnxinvxtnbo.feishu.cn/wiki/GH64weIMnibBimkrzETcPcWwnPc)
 - 🎥 视频教程：[课程链接](#)（待补充）
 
 ---
